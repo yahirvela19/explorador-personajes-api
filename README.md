@@ -92,6 +92,28 @@ Laboratorio de Programación Web · FIME UANL
 
 No requiere instalación ni servidor propio; solo conexión a internet.
 
+## Capturas
+
+**Vista inicial:** primera página de los 826 personajes que reporta la API.
+
+![Vista inicial con los personajes de la API](docs/capturas/01-vista-inicial.png)
+
+**Búsqueda y filtros:** el nombre “rick” combinado con el estado “Muerto” devuelve 54 personajes en 3 páginas.
+
+![Búsqueda por nombre combinada con el filtro de estado](docs/capturas/02-busqueda-y-filtros.png)
+
+**Detalle:** al seleccionar una tarjeta se consultan el personaje y sus episodios.
+
+![Detalle de un personaje con sus episodios](docs/capturas/03-detalle.png)
+
+**Resultado vacío:** la API responde 404 y se muestra un mensaje con la opción de limpiar filtros.
+
+![Estado vacío cuando no hay coincidencias](docs/capturas/04-sin-resultados.png)
+
+**Error de conexión:** sin internet se muestra el mensaje de error con el botón Reintentar.
+
+![Mensaje de error sin conexión](docs/capturas/05-error-sin-conexion.png)
+
 ## Estructura del proyecto
 
 ```
@@ -102,6 +124,8 @@ explorador-personajes-api/
 ├── js/
 │   ├── api.js      Acceso a la API: fetch, async/await y manejo de códigos HTTP
 │   └── app.js      Interfaz: estado, renderizado en el DOM y eventos
+├── docs/
+│   └── capturas/   Imágenes usadas en este README
 └── README.md
 ```
 
