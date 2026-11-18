@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explorador de personajes — Rick and Morty API</title>
+  <meta name="description" content="Miniaplicación que consume la Rick and Morty API con Fetch y async/await.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">P</span>
+        <div>
+          <p class="brand__name">Explorador de personajes</p>
+          <p class="brand__sub">Datos de la Rick and Morty API</p>
+        </div>
+      </div>
+      <a class="btn btn--ghost" href="https://rickandmortyapi.com/documentation" target="_blank" rel="noopener">
+        Documentación de la API
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Búsqueda y filtros -->
+    <section class="filters card" aria-label="Búsqueda y filtros">
+      <form id="form-filtros" class="filters__grid" role="search">
+        <div class="field field--grow">
+          <label for="filtro-nombre">Nombre</label>
+          <input id="filtro-nombre" name="name" type="search" placeholder="Ej. Rick, Morty, Summer" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="filtro-estado">Estado</label>
+          <select id="filtro-estado" name="status">
+            <option value="">Todos</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Muerto</option>
+            <option value="unknown">Desconocido</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="filtro-especie">Especie</label>
+          <select id="filtro-especie" name="species">
+            <option value="">Todas</option>
+            <option value="Human">Humano</option>
+            <option value="Alien">Alienígena</option>
+            <option value="Humanoid">Humanoide</option>
+            <option value="Robot">Robot</option>
+            <option value="Animal">Animal</option>
+            <option value="Cronenberg">Cronenberg</option>
+            <option value="Mythological Creature">Criatura mitológica</option>
+            <option value="Poopybutthole">Poopybutthole</option>
+            <option value="Disease">Enfermedad</option>
+            <option value="unknown">Desconocida</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="filtro-genero">Género</label>
+          <select id="filtro-genero" name="gender">
+            <option value="">Todos</option>
+            <option value="female">Femenino</option>
+            <option value="male">Masculino</option>
+            <option value="genderless">Sin género</option>
+            <option value="unknown">Desconocido</option>
+          </select>
+        </div>
+        <div class="field field--actions">
+          <button class="btn btn--ghost" id="btn-limpiar" type="button">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Resumen de resultados y paginación -->
+    <div class="results-bar">
+      <p class="muted" id="resumen" aria-live="polite">Cargando…</p>
+      <nav class="pager" aria-label="Paginación">
+        <button class="btn btn--ghost btn--sm" id="btn-anterior" type="button" disabled>Anterior</button>
+        <span class="pager__info" id="pagina-info">Página 1</span>
+        <button class="btn btn--ghost btn--sm" id="btn-siguiente" type="button" disabled>Siguiente</button>
+      </nav>
+    </div>
+
+    <!-- Contenedor de estados: carga, vacío y error -->
+    <div id="estado" class="state" hidden></div>
+
+    <!-- Tarjetas creadas dinámicamente -->
+    <section id="lista" class="grid" aria-label="Personajes"></section>
+  </main>
+
+  <!-- Detalle del personaje -->
+  <dialog id="detalle" class="dialog" aria-labelledby="detalle-titulo">
+    <div class="dialog__header">
+      <h2 class="dialog__title" id="detalle-titulo">Personaje</h2>
+      <button class="btn btn--ghost btn--sm" id="btn-cerrar" type="button">Cerrar</button>
+    </div>
+    <div id="detalle-contenido"></div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="muted">Laboratorio de Programación Web · FIME UANL · Datos obtenidos en tiempo real de rickandmortyapi.com</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
